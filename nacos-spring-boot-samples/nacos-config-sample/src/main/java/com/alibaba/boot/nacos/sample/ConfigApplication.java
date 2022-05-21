@@ -16,7 +16,7 @@
  */
 package com.alibaba.boot.nacos.sample;
 
-import com.alibaba.boot.nacos.sample.config.Foo;
+import com.alibaba.boot.nacos.sample.nacosconfig.Foo;
 import com.alibaba.nacos.spring.context.annotation.config.EnableNacosConfig;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 

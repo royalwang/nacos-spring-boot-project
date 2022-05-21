@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alibaba.boot.nacos.sample.config;
+package com.alibaba.boot.nacos.sample.nacosconfig;
 
 import java.util.List;
 import java.util.Map;

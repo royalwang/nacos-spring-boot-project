@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alibaba.boot.nacos.sample.config;
+package com.alibaba.boot.nacos.sample.nacosconfig;
 
 import com.alibaba.boot.nacos.sample.ConfigApplication;
 import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;

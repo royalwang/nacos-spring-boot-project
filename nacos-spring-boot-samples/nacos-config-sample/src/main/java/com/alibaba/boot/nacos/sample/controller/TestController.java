@@ -17,7 +17,7 @@
 package com.alibaba.boot.nacos.sample.controller;
 
 import com.alibaba.boot.nacos.sample.config.TestConfiguration;
-import com.alibaba.boot.nacos.sample.config.Apple;
+import com.alibaba.boot.nacos.sample.nacosconfig.Apple;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 
 import org.springframework.beans.factory.annotation.Autowired;
