@@ -16,19 +16,15 @@
  */
 package com.alibaba.boot.nacos.sample;
 
-import com.alibaba.boot.nacos.sample.runner.FirstCommandLineRunner;
-import com.alibaba.boot.nacos.sample.runner.SecondCommandLineRunner;
+import com.alibaba.boot.nacos.sample.config.Foo;
 import com.alibaba.nacos.spring.context.annotation.config.EnableNacosConfig;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import static org.springframework.core.env.StandardEnvironment.SYSTEM_ENVIRONMENT_PROPERTY_SOURCE_NAME;

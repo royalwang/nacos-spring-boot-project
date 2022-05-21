@@ -14,46 +14,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alibaba.boot.nacos.sample;
+package com.alibaba.boot.nacos.sample.config;
 
-import java.util.List;
-import java.util.Map;
-
-import com.alibaba.nacos.api.config.ConfigType;
+import com.alibaba.boot.nacos.sample.ConfigApplication;
 import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
 
-import org.springframework.context.annotation.Configuration;
-
 /**
- * @author <a href="mailto:liaochunyhm@live.com">liaochuntao</a>
- * @since
+ * @author <a href="mailto:fangjian0423@gmail.com">Jim</a>
  */
-@NacosConfigurationProperties(prefix = "apple", dataId = "apple", type = ConfigType.YAML, autoRefreshed = true)
-@Configuration
-public class Apple {
+@NacosConfigurationProperties(dataId = ConfigApplication.DATA_ID)
+public class Foo {
 
-	private List<String> list;
+	private String dept;
 
-	private Map<String, List<String>> listMap;
+	private String group;
 
-	public List<String> getList() {
-		return list;
+	public String getDept() {
+		return dept;
 	}
 
-	public void setList(List<String> list) {
-		this.list = list;
+	public void setDept(String dept) {
+		this.dept = dept;
 	}
 
-	public Map<String, List<String>> getListMap() {
-		return listMap;
+	public String getGroup() {
+		return group;
 	}
 
-	public void setListMap(Map<String, List<String>> listMap) {
-		this.listMap = listMap;
+	public void setGroup(String group) {
+		this.group = group;
 	}
 
 	@Override
 	public String toString() {
-		return "Apple{" + "list=" + list + ", listMap=" + listMap + '}';
+		return "Foo{" + "dept='" + dept + '\'' + ", group='" + group + '\'' + '}';
 	}
 }

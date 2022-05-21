@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alibaba.boot.nacos.sample;
+package com.alibaba.boot.nacos.sample.service;
 
 import java.util.Map;
 import java.util.concurrent.Executors;

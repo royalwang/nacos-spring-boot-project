@@ -14,38 +14,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alibaba.boot.nacos.sample;
+package com.alibaba.boot.nacos.sample.config;
 
-import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
+import com.alibaba.nacos.api.config.annotation.NacosConfigListener;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
+
+import org.springframework.context.annotation.Configuration;
 
 /**
- * @author <a href="mailto:fangjian0423@gmail.com">Jim</a>
+ * @author <a href="mailto:liaochunyhm@live.com">liaochuntao</a>
+ * @since
  */
-@NacosConfigurationProperties(dataId = ConfigApplication.DATA_ID)
-public class Foo {
+@Configuration
+public class TestConfiguration {
 
-	private String dept;
+	@NacosValue(value = "${people.count:0}", autoRefreshed = true)
+	private String count;
 
-	private String group;
-
-	public String getDept() {
-		return dept;
+	public String getCount() {
+		return count;
 	}
 
-	public void setDept(String dept) {
-		this.dept = dept;
+	public void setCount(String count) {
+		this.count = count;
 	}
 
-	public String getGroup() {
-		return group;
-	}
-
-	public void setGroup(String group) {
-		this.group = group;
-	}
-
-	@Override
-	public String toString() {
-		return "Foo{" + "dept='" + dept + '\'' + ", group='" + group + '\'' + '}';
+	@NacosConfigListener(dataId = "listener.test", timeout = 500)
+	public void onChange(String newContent) throws Exception {
+		System.out.println("onChange : " + newContent);
 	}
 }

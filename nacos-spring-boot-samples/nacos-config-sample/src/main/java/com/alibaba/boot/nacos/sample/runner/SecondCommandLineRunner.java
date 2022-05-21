@@ -1,6 +1,6 @@
 package com.alibaba.boot.nacos.sample.runner;
 
-import com.alibaba.boot.nacos.sample.Foo;
+import com.alibaba.boot.nacos.sample.config.Foo;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

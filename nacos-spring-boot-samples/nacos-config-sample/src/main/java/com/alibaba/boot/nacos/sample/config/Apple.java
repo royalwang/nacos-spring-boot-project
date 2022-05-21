@@ -14,10 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alibaba.boot.nacos.sample;
+package com.alibaba.boot.nacos.sample.config;
 
-import com.alibaba.nacos.api.config.annotation.NacosConfigListener;
-import com.alibaba.nacos.api.config.annotation.NacosValue;
+import java.util.List;
+import java.util.Map;
+
+import com.alibaba.nacos.api.config.ConfigType;
+import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
 
 import org.springframework.context.annotation.Configuration;
 
@@ -25,22 +28,32 @@ import org.springframework.context.annotation.Configuration;
  * @author <a href="mailto:liaochunyhm@live.com">liaochuntao</a>
  * @since
  */
+@NacosConfigurationProperties(prefix = "apple", dataId = "apple", type = ConfigType.YAML, autoRefreshed = true)
 @Configuration
-public class TestConfiguration {
+public class Apple {
 
-	@NacosValue(value = "${people.count:0}", autoRefreshed = true)
-	private String count;
+	private List<String> list;
 
-	public String getCount() {
-		return count;
+	private Map<String, List<String>> listMap;
+
+	public List<String> getList() {
+		return list;
 	}
 
-	public void setCount(String count) {
-		this.count = count;
+	public void setList(List<String> list) {
+		this.list = list;
 	}
 
-	@NacosConfigListener(dataId = "listener.test", timeout = 500)
-	public void onChange(String newContent) throws Exception {
-		System.out.println("onChange : " + newContent);
+	public Map<String, List<String>> getListMap() {
+		return listMap;
+	}
+
+	public void setListMap(Map<String, List<String>> listMap) {
+		this.listMap = listMap;
+	}
+
+	@Override
+	public String toString() {
+		return "Apple{" + "list=" + list + ", listMap=" + listMap + '}';
 	}
 }
