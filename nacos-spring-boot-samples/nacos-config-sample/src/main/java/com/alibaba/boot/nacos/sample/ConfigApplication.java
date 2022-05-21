@@ -16,14 +16,11 @@
  */
 package com.alibaba.boot.nacos.sample;
 
-import com.alibaba.nacos.api.annotation.NacosInjected;
-import com.alibaba.nacos.api.common.Constants;
-import com.alibaba.nacos.api.config.ConfigService;
-import com.alibaba.nacos.api.config.annotation.NacosValue;
+import com.alibaba.boot.nacos.sample.runner.FirstCommandLineRunner;
+import com.alibaba.boot.nacos.sample.runner.SecondCommandLineRunner;
 import com.alibaba.nacos.spring.context.annotation.config.EnableNacosConfig;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -54,17 +51,6 @@ public class ConfigApplication {
 		SpringApplication.run(ConfigApplication.class, args);
 	}
 
-	@Bean
-	@Order(Ordered.LOWEST_PRECEDENCE)
-	public CommandLineRunner firstCommandLineRunner() {
-		return new FirstCommandLineRunner();
-	}
-
-	@Bean
-	@Order(Ordered.LOWEST_PRECEDENCE - 1)
-	public CommandLineRunner secondCommandLineRunner() {
-		return new SecondCommandLineRunner();
-	}
 
 	@Bean
 	public Foo foo() {
@@ -81,42 +67,6 @@ public class ConfigApplication {
 			return new Object();
 		}
 
-	}
-
-	public static class FirstCommandLineRunner implements CommandLineRunner {
-
-		@NacosInjected
-		private ConfigService configService;
-
-		@Override
-		public void run(String... args) throws Exception {
-			if (configService.publishConfig(DATA_ID, Constants.DEFAULT_GROUP, content)) {
-				Thread.sleep(200);
-				System.out.println("First runner success: " + configService
-						.getConfig(DATA_ID, Constants.DEFAULT_GROUP, 5000));
-			}
-			else {
-				System.out.println("First runner error: publish config error");
-			}
-		}
-	}
-
-	public static class SecondCommandLineRunner implements CommandLineRunner {
-
-		@NacosValue("${dept:unknown}")
-		private String dept;
-
-		@NacosValue("${group:unknown}")
-		private String group;
-
-		@Autowired
-		private Foo foo;
-
-		@Override
-		public void run(String... args) throws Exception {
-			System.out.println("Second runner. dept: " + dept + ", group: " + group);
-			System.out.println("Second runner. foo: " + foo);
-		}
 	}
 
 }
