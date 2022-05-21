@@ -1,0 +1,39 @@
+### 获取配置 test
+GET http://nacos.my.local/nacos/v1/cs/configs?tenant=dev&dataId=test&group=DEVELOP
+
+### 获取配置 people
+GET http://nacos.my.local/nacos/v1/cs/configs?tenant=dev&dataId=people&group=DEVELOP
+
+### 查询历史版本
+GET http://nacos.my.local/nacos/v1/cs/history?search=accurate&tenant=dev&dataId=test&group=DEVELOP
+
+### 查询历史版本详情
+GET http://nacos.my.local/nacos/v1/cs/history?tenant=dev&dataId=test&group=DEVELOP&nid=18
+
+### 查询配置上一版本信息
+GET http://nacos.my.local/nacos/v1/cs/history/previous?tenant=dev&dataId=test&group=DEVELOP&id=18
+
+### 查询命名空间列表
+GET http://nacos.my.local/nacos/v1/console/namespaces
+
+### 查询实例列表
+GET http://nacos.my.local/nacos/v1/ns/instance/list?serviceName=test
+
+### 查询实例详情
+GET http://nacos.my.local/nacos/v1/ns/instance?serviceName=test
+
+### 查询服务
+GET http://nacos.my.local/nacos/v1/ns/service?serviceName=test
+
+### 查询服务列表
+GET http://nacos.my.local/nacos/v1/ns/service/list?pageNo=1&pageSize=10
+
+### 查看系统当前数据指标
+GET http://nacos.my.local/nacos/v1/ns/operator/metrics
+
+### 查看当前集群Server列表
+GET http://nacos.my.local/nacos/v1/ns/operator/servers
+
+### 查看当前集群leader
+GET http://nacos.my.local/nacos/v1/ns/raft/leader
+
