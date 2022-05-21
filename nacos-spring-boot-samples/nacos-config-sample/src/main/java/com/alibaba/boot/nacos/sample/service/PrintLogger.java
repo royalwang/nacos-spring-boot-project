@@ -66,9 +66,9 @@ public class PrintLogger {
 			while (true) {
 				TimeUnit.SECONDS.sleep(5);
 				logger.info("我是info级别日志");
-				logger.error("我是error级别日志");
+				/*logger.error("我是error级别日志");
 				logger.warn("我是warn级别日志");
-				logger.debug("我是debug级别日志");
+				logger.debug("我是debug级别日志");*/
 			}
 		});
 	}
